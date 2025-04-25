@@ -26,13 +26,14 @@
 }
 
 body {
-  background: linear-gradient(145deg, #e6e9f0, #f0f3f7);
+  background: linear-gradient(145deg, #dbe4f0, #f5f7fa);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   direction: rtl;
   color: var(--accent);
+  transition: background 0.5s ease;
 }
 
 .container {
