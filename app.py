@@ -29,7 +29,7 @@ def index():
                 features = scaler.transform(features)
                 features = pca.transform(features)
                 prediction = model.predict(features)[0]
-                result = "امضا معتبر است ✅" if prediction == 1 else "امضا جعلی است ❌"
+                result = "امضا معتبر است ✅" if prediction == 0 else "امضا جعلی است ❌"
             except Exception as e:
                 result = f"خطا: {str(e)}"
 
