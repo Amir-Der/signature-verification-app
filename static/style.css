@@ -1,3 +1,4 @@
+  
 /* طراحی فوق‌العاده مدرن با فونت ایران‌سنس و جلوه شیشه‌ای + نئومورفیک */
 @font-face {
   font-family: 'IRANSansWeb';
@@ -26,7 +27,9 @@
 }
 
 body {
-  background: linear-gradient(145deg, #dbe4f0, #f5f7fa);
+  background: linear-gradient(135deg, #8ec5fc, #e0c3fc);
+  background-size: 400% 400%;
+  animation: waveBackground 10s ease infinite;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -117,6 +120,14 @@ button:hover {
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes waveBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
   to { opacity: 1; transform: translateY(0); }
 }
 
