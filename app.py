@@ -29,7 +29,7 @@ def index():
                 prediction = model.predict(features)[0]
                 result = "امضا معتبر است ✅" if prediction == 1 else "امضا جعلی است ❌"
             except Exception as e:
-                result = "خطا در پردازش تصویر"
+                result = f"خطا: {str(e)}"
 
             os.remove(filepath)
     return render_template("index.html", result=result)
