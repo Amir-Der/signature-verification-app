@@ -1,25 +1,141 @@
+/* Load Iran Sans font */
+@font-face {
+    font-family: 'IRANSansWeb';
+    src: url('/static/fonts/IRANSansWeb Medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'IRANSansWeb';
+    src: url('/static/fonts/IRANSansWeb Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
 
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
 body {
-    font-family: 'Tahoma', sans-serif;
-    background: #f7f7f7;
+    font-family: 'IRANSans', Tahoma, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    color: #333;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    min-height: 100vh;
     direction: rtl;
-    text-align: center;
 }
+
+/* Container for content */
 .container {
-    margin-top: 100px;
-    padding: 30px;
     background: white;
-    display: inline-block;
     border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 40px 50px;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
 }
+
+/* Heading */
+h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* File input style */
+input[type="file"] {
+    margin-top: 20px;
+    padding: 10px;
+    width: 70%;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    font-family: 'IRANSans', sans-serif;
+}
+
+input[type="file"]:hover {
+    border-color: #6c757d;
+}
+
+input[type="file"]:focus {
+    border-color: #007bff;
+}
+
+/* Submit button style */
 button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'IRANSans', sans-serif;
 }
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Result box */
 .result {
     margin-top: 20px;
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.result.positive {
+    color: green;
+}
+
+.result.negative {
+    color: red;
+}
+
+/* Animation for result text */
+.result {
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 30px;
+    font-family: 'IRANSans', sans-serif;
+}
+
+footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
