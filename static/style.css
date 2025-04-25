@@ -1,4 +1,4 @@
-/* جذاب‌ترین استایل با فونت ایران سنس و طراحی نئومورفیک شیک */
+/* طراحی فوق‌العاده مدرن با فونت ایران‌سنس و جلوه شیشه‌ای + نئومورفیک */
 @font-face {
   font-family: 'IRANSansWeb';
   src: url('/static/fonts/IRANSans-Medium-web.woff2') format('woff2'),
@@ -8,11 +8,12 @@
 }
 
 :root {
-  --bg-color: #e0e5ec;
-  --primary: #3498db;
-  --accent: #2c3e50;
-  --light-shadow: rgba(255, 255, 255, 0.6);
-  --dark-shadow: rgba(163, 177, 198, 0.6);
+  --bg-color: #ecf0f3;
+  --glass-bg: rgba(255, 255, 255, 0.35);
+  --primary: #3f51b5;
+  --accent: #222;
+  --light-shadow: rgba(255, 255, 255, 0.8);
+  --dark-shadow: rgba(163, 177, 198, 0.5);
   --radius: 20px;
   --transition: 0.3s ease;
 }
@@ -25,7 +26,7 @@
 }
 
 body {
-  background: var(--bg-color);
+  background: linear-gradient(145deg, #e6e9f0, #f0f3f7);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,14 +36,16 @@ body {
 }
 
 .container {
-  background: var(--bg-color);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
   border-radius: var(--radius);
-  box-shadow: 8px 8px 16px var(--dark-shadow), -8px -8px 16px var(--light-shadow);
-  padding: 50px 40px;
-  max-width: 500px;
+  box-shadow: 10px 10px 30px var(--dark-shadow), -10px -10px 30px var(--light-shadow);
+  padding: 60px 45px;
+  max-width: 520px;
   width: 100%;
   text-align: center;
   animation: popUp 0.6s ease-out;
+  border: 1px solid rgba(255,255,255,0.2);
 }
 
 @keyframes popUp {
@@ -51,56 +54,60 @@ body {
 }
 
 h1 {
-  font-size: 2.4rem;
-  margin-bottom: 25px;
+  font-size: 2.6rem;
+  margin-bottom: 28px;
   font-weight: bold;
   color: var(--primary);
+  text-shadow: 1px 1px 0 #fff;
 }
 
 input[type="file"] {
-  padding: 12px;
+  padding: 14px;
   border: none;
   border-radius: var(--radius);
-  box-shadow: inset 6px 6px 10px var(--dark-shadow), inset -6px -6px 10px var(--light-shadow);
-  background: var(--bg-color);
+  background: var(--glass-bg);
+  box-shadow: inset 4px 4px 10px var(--dark-shadow), inset -4px -4px 10px var(--light-shadow);
   color: var(--accent);
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   cursor: pointer;
   transition: var(--transition);
+  font-size: 1rem;
+  backdrop-filter: blur(5px);
 }
 
 button {
-  padding: 14px 30px;
+  padding: 15px 35px;
   border: none;
   border-radius: var(--radius);
-  background: var(--bg-color);
-  color: var(--primary);
-  font-size: 1.1rem;
+  background: linear-gradient(145deg, #3f51b5, #5c6bc0);
+  color: #fff;
+  font-size: 1.15rem;
   font-weight: bold;
-  box-shadow: 6px 6px 12px var(--dark-shadow), -6px -6px 12px var(--light-shadow);
+  box-shadow: 6px 6px 12px rgba(63, 81, 181, 0.3);
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
 
 button:hover {
-  transform: translateY(-3px);
-  box-shadow: 4px 4px 10px var(--dark-shadow), -4px -4px 10px var(--light-shadow);
+  transform: scale(1.03);
+  filter: brightness(1.1);
 }
 
 .result {
-  margin-top: 25px;
-  padding: 15px;
-  font-size: 1.3rem;
+  margin-top: 30px;
+  padding: 18px;
+  font-size: 1.4rem;
   font-weight: 600;
   border-radius: var(--radius);
-  background: var(--bg-color);
+  background: rgba(255, 255, 255, 0.45);
   box-shadow: inset 6px 6px 12px var(--dark-shadow), inset -6px -6px 12px var(--light-shadow);
   animation: fadeIn 1s ease-in-out;
+  backdrop-filter: blur(6px);
 }
 
 .result.positive {
-  color: #27ae60;
+  color: #2ecc71;
 }
 
 .result.negative {
