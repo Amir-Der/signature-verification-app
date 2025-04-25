@@ -1,141 +1,128 @@
-/* Load Iran Sans font */
+/* جذاب‌ترین استایل با فونت ایران سنس و طراحی نئومورفیک شیک */
 @font-face {
-    font-family: 'IRANSansWeb';
-    src: url('/static/fonts/IRANSansWeb Medium.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'IRANSansWeb';
-    src: url('/static/fonts/IRANSansWeb Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
+  font-family: 'IRANSansWeb';
+  src: url('/static/fonts/IRANSansWeb.woff2') format('woff2'),
+       url('/static/fonts/IRANSansWeb.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
-/* Reset default styles */
+:root {
+  --bg-color: #e0e5ec;
+  --primary: #3498db;
+  --accent: #2c3e50;
+  --light-shadow: rgba(255, 255, 255, 0.6);
+  --dark-shadow: rgba(163, 177, 198, 0.6);
+  --radius: 20px;
+  --transition: 0.3s ease;
+}
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'IRANSansWeb', sans-serif;
 }
 
-/* Body */
 body {
-    font-family: 'IRANSans', Tahoma, sans-serif;
-    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-    color: #333;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    min-height: 100vh;
-    direction: rtl;
+  background: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  direction: rtl;
+  color: var(--accent);
 }
 
-/* Container for content */
 .container {
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    padding: 40px 50px;
-    text-align: center;
-    width: 100%;
-    max-width: 500px;
+  background: var(--bg-color);
+  border-radius: var(--radius);
+  box-shadow: 8px 8px 16px var(--dark-shadow), -8px -8px 16px var(--light-shadow);
+  padding: 50px 40px;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  animation: popUp 0.6s ease-out;
 }
 
-/* Heading */
+@keyframes popUp {
+  0% { transform: scale(0.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
 h1 {
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 20px;
-    font-weight: 700;
+  font-size: 2.4rem;
+  margin-bottom: 25px;
+  font-weight: bold;
+  color: var(--primary);
 }
 
-/* File input style */
 input[type="file"] {
-    margin-top: 20px;
-    padding: 10px;
-    width: 70%;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-    transition: border-color 0.3s ease;
-    font-family: 'IRANSans', sans-serif;
+  padding: 12px;
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: inset 6px 6px 10px var(--dark-shadow), inset -6px -6px 10px var(--light-shadow);
+  background: var(--bg-color);
+  color: var(--accent);
+  width: 100%;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: var(--transition);
 }
 
-input[type="file"]:hover {
-    border-color: #6c757d;
-}
-
-input[type="file"]:focus {
-    border-color: #007bff;
-}
-
-/* Submit button style */
 button {
-    margin-top: 20px;
-    padding: 12px 25px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-family: 'IRANSans', sans-serif;
+  padding: 14px 30px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--bg-color);
+  color: var(--primary);
+  font-size: 1.1rem;
+  font-weight: bold;
+  box-shadow: 6px 6px 12px var(--dark-shadow), -6px -6px 12px var(--light-shadow);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
 button:hover {
-    background-color: #0056b3;
+  transform: translateY(-3px);
+  box-shadow: 4px 4px 10px var(--dark-shadow), -4px -4px 10px var(--light-shadow);
 }
 
-/* Result box */
 .result {
-    margin-top: 20px;
-    font-size: 1.2rem;
-    font-weight: 600;
+  margin-top: 25px;
+  padding: 15px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  border-radius: var(--radius);
+  background: var(--bg-color);
+  box-shadow: inset 6px 6px 12px var(--dark-shadow), inset -6px -6px 12px var(--light-shadow);
+  animation: fadeIn 1s ease-in-out;
 }
 
 .result.positive {
-    color: green;
+  color: #27ae60;
 }
 
 .result.negative {
-    color: red;
-}
-
-/* Animation for result text */
-.result {
-    animation: fadeIn 1s ease-out;
+  color: #e74c3c;
 }
 
 @keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Footer */
 footer {
-    text-align: center;
-    font-size: 0.9rem;
-    color: #555;
-    margin-top: 30px;
-    font-family: 'IRANSans', sans-serif;
+  margin-top: 40px;
+  font-size: 0.85rem;
+  color: #777;
 }
 
 footer a {
-    color: #007bff;
-    text-decoration: none;
+  color: var(--primary);
+  text-decoration: none;
 }
 
 footer a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
