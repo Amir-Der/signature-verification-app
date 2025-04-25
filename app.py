@@ -8,7 +8,7 @@ from import_cv2 import preprocess_image, extract_hog_feature
 import numpy as np
 
 app = Flask(__name__)
-model = joblib.load("CEDER.pkl")
+model, scaler = joblib.load("CEDER.pkl")
 
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
@@ -26,6 +26,7 @@ def index():
             try:
                 img = preprocess_image(filepath)
                 features = extract_hog_feature(img).reshape(1, -1)
+                features = scaler.transform(features)
                 prediction = model.predict(features)[0]
                 result = "امضا معتبر است ✅" if prediction == 1 else "امضا جعلی است ❌"
             except Exception as e:
