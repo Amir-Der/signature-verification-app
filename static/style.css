@@ -1,8 +1,8 @@
 /* جذاب‌ترین استایل با فونت ایران سنس و طراحی نئومورفیک شیک */
 @font-face {
   font-family: 'IRANSansWeb';
-  src: url('/static/fonts/IRANSansWeb.woff2') format('woff2'),
-       url('/static/fonts/IRANSansWeb.woff') format('woff');
+  src: url('/static/fonts/IRANSans-Medium-web.woff2') format('woff2'),
+       url('/static/fonts/IRANSans-Medium-web.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
