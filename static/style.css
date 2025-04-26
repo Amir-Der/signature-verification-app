@@ -6,27 +6,34 @@
   font-style: normal;
 }
 
-/* بدنه سایت */
+/* بکگراند مستقل */
+.background {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: -1;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: dynamicBackground 60s linear infinite;
+}
+
+/* انیمیشن گرادیانت */
+@keyframes dynamicBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* بدنه */
 body {
   margin: 0;
   font-family: 'IRANSansWeb', sans-serif;
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 400%;
-  animation: dynamicBackground 30s linear infinite;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 30px;
-  overflow-x: hidden;
   color: #222;
-}
-
-/* انیمیشن گرادیانت پیوسته بدون ریست */
-@keyframes dynamicBackground {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  overflow-x: hidden;
 }
 
 /* باکس اصلی */
@@ -34,15 +41,14 @@ body {
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  border-radius: 20px;
   padding: 50px 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
   width: 100%;
   max-width: 500px;
-  min-height: 350px; /* ارتفاع پیش‌بینی شده */
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  min-height: 400px;
   text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  font-family: 'IRANSansWeb', sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -51,69 +57,62 @@ body {
 
 /* عنوان */
 h1 {
-  font-family: 'IRANSansWeb', sans-serif;
-  font-size: 2rem;
   margin-bottom: 20px;
   color: #2c3e50;
+  font-size: 2rem;
 }
 
-/* فرم ورودی و دکمه */
+/* فرم */
 form {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 15px;
-  font-family: 'IRANSansWeb', sans-serif;
 }
 
-input[type=\"file\"], button {
+input[type="file"], button {
   width: 100%;
   padding: 12px;
-  border-radius: 12px;
   border: none;
+  border-radius: 12px;
   font-size: 1rem;
   font-family: 'IRANSansWeb', sans-serif;
 }
 
-input[type=\"file\"] {
-  background: rgba(255,255,255,0.5);
+input[type="file"] {
+  background: rgba(255, 255, 255, 0.5);
   box-shadow: inset 2px 2px 6px rgba(0,0,0,0.1), inset -2px -2px 6px rgba(255,255,255,0.7);
   color: #222;
+  border: 2px solid rgba(0,0,0,0.2);
 }
 
 button {
   background: rgba(63, 81, 181, 0.9);
-  color: white;
-  font-weight: bold;
+  color: #fff;
   cursor: pointer;
   transition: background 0.3s;
+  font-weight: bold;
 }
 
 button:hover {
   background: rgba(92, 107, 192, 0.95);
 }
 
-/* نتیجه */
+/* نمایش نتیجه */
 .result {
   font-family: 'IRANSansWeb', sans-serif;
   font-weight: bold;
   font-size: 1.2rem;
   color: #222;
-  margin-top: 10px;
 }
 
-/* ریسپانسیو موبایل */
+/* واکنش‌گرا */
 @media (max-width: 768px) {
   .container {
     padding: 30px 20px;
-    min-height: 300px;
   }
   h1 {
     font-size: 1.8rem;
-  }
-  input[type=\"file\"], button {
-    padding: 10px;
-    font-size: 0.9rem;
   }
 }
 
@@ -124,9 +123,8 @@ button:hover {
   h1 {
     font-size: 1.5rem;
   }
-  input[type=\"file\"], button {
-    padding: 8px;
-    font-size: 0.85rem;
+}
+
   }
   .result {
     font-size: 0.9rem;
