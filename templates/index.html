@@ -22,7 +22,7 @@
     <div class="result" id="result"></div>
 
     <div class="info">
-      دقت مدل: ۹۸٪ | آپلود امن 🔒
+      دقت مدل: ۹۹.۵٪ | آپلود امن 🔒
     </div>
   </div>
 
@@ -45,9 +45,14 @@
         body: formData
       });
 
-      const data = await response.json();
-      resultDiv.textContent = data.result;
-      resultDiv.classList.add('show');
+      if (response.ok) {
+        const data = await response.json();
+        resultDiv.textContent = data.result; // نمایش نتیجه
+        resultDiv.classList.add('show');
+      } else {
+        resultDiv.textContent = "خطا در پردازش تصویر";
+        resultDiv.classList.add('show');
+      }
 
       submitBtn.disabled = false;
       submitBtn.innerHTML = 'بررسی امضا';
