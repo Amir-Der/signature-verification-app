@@ -18,12 +18,8 @@
     </form>
 
     <div class="preview" id="preview"></div>
-
     <div class="result" id="result"></div>
-
-    <div class="info">
-      دقت مدل: ۹۹.۵٪ | آپلود امن 🔒
-    </div>
+    <div class="info">دقت مدل: ۹۹.۵٪ | آپلود امن 🔒</div>
   </div>
 
   <script>
@@ -33,41 +29,35 @@
     const fileInput = document.getElementById('file-input');
     const submitBtn = document.getElementById('submit-btn');
 
-    form.addEventListener('submit', async (e) => {
+    form.addEventListener('submit', async e => {
       e.preventDefault();
+      resultDiv.classList.remove('show');
       const formData = new FormData(form);
 
       submitBtn.disabled = true;
-      submitBtn.innerHTML = 'در حال بررسی... ⏳';
+      submitBtn.innerText = 'در حال بررسی... ⏳';
 
-      const response = await fetch('/', {
-        method: 'POST',
-        body: formData
-      });
-
+      const response = await fetch('/', { method: 'POST', body: formData });
       if (response.ok) {
         const data = await response.json();
-        resultDiv.textContent = data.result; // نمایش نتیجه
-        resultDiv.classList.add('show');
+        resultDiv.innerText = data.result;
       } else {
-        resultDiv.textContent = "خطا در پردازش تصویر";
-        resultDiv.classList.add('show');
+        resultDiv.innerText = 'خطا در پردازش تصویر';
       }
-
+      resultDiv.classList.add('show');
       submitBtn.disabled = false;
-      submitBtn.innerHTML = 'بررسی امضا';
+      submitBtn.innerText = 'بررسی امضا';
     });
 
     fileInput.addEventListener('change', () => {
       const file = fileInput.files[0];
+      previewDiv.innerHTML = '';
       if (file) {
         const reader = new FileReader();
-        reader.onload = (e) => {
-          previewDiv.innerHTML = `<img src="${e.target.result}" alt="پیش نمایش امضا">`;
+        reader.onload = e => {
+          previewDiv.innerHTML = `<img src="${e.target.result}" alt="پیش‌نمایش امضا">`;
         };
         reader.readAsDataURL(file);
-      } else {
-        previewDiv.innerHTML = '';
       }
     });
   </script>
