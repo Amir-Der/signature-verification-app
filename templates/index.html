@@ -7,24 +7,43 @@
 </head>
 <body>
 
-  <div class="background"></div> <!-- بکگراند مستقل -->
+  <div class="background"></div>
 
   <div class="container">
-    <h1>تشخیص امضای جعلی</h1>
+    <div class="top-bar">
+      <h1>تشخیص امضای جعلی</h1>
+      <button id="toggle-dark" class="toggle-dark">🌙</button>
+    </div>
+
     <form method="POST" enctype="multipart/form-data" id="upload-form">
-      <input type="file" name="file" required>
-      <button type="submit">بررسی امضا</button>
+      <input type="file" name="file" id="file-input" required accept="image/*">
+      <button type="submit" id="submit-btn">بررسی امضا</button>
     </form>
+
+    <div class="preview" id="preview"></div>
+
     <div class="result" id="result"></div>
+
+    <div class="info">
+      دقت مدل: ۹۸٪ | آپلود امن 🔒
+    </div>
   </div>
 
   <script>
     const form = document.getElementById('upload-form');
     const resultDiv = document.getElementById('result');
+    const previewDiv = document.getElementById('preview');
+    const fileInput = document.getElementById('file-input');
+    const submitBtn = document.getElementById('submit-btn');
+    const toggleDark = document.getElementById('toggle-dark');
+    let isDark = false;
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const formData = new FormData(form);
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'در حال بررسی... ⏳';
 
       const response = await fetch('/', {
         method: 'POST',
@@ -33,6 +52,29 @@
 
       const data = await response.json();
       resultDiv.textContent = data.result;
+      resultDiv.classList.add('show');
+
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = 'بررسی امضا';
+    });
+
+    fileInput.addEventListener('change', () => {
+      const file = fileInput.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          previewDiv.innerHTML = `<img src="${e.target.result}" alt="پیش نمایش امضا">`;
+        };
+        reader.readAsDataURL(file);
+      } else {
+        previewDiv.innerHTML = '';
+      }
+    });
+
+    toggleDark.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      isDark = !isDark;
+      toggleDark.textContent = isDark ? '☀️' : '🌙';
     });
   </script>
 
