@@ -31,18 +31,23 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* استایل باکس شیشه‌ای (container) */
+/* استایل برای باکس وسط که فرم‌ها داخلش هستند */
 .container {
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   padding: 50px 40px;
   border-radius: 20px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   width: 100%;
   max-width: 500px;
   text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.3);
+  min-height: 300px; /* ارتفاع ثابت برای نمایش بهتر محتوا */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* برای مرکزیت محتوا */
+  gap: 20px;
 }
 
 /* عنوان صفحه */
@@ -61,6 +66,7 @@ button {
   border: none;
   border-radius: 12px;
   font-size: 1rem;
+  margin-bottom: 15px;
 }
 
 /* استایل ورودی فایل */
@@ -72,7 +78,7 @@ input[type="file"] {
   color: #222;
 }
 
-/* استایل دکمه */
+/* استایل دکمه‌ها */
 button {
   background: rgba(63, 81, 181, 0.9);
   color: #fff;
@@ -90,7 +96,7 @@ button:hover {
   margin-top: 20px;
   font-weight: bold;
   font-size: 1.2rem;
-  color: #222;
+  color: #333; /* تغییر رنگ به مشکی */
 }
 
 /* حالت واکنش‌گرا */
