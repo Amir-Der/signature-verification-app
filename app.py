@@ -1,5 +1,4 @@
-
-from flask import Flask, render_template, request
+from flask import Flask, jsonify, request
 import os
 import joblib
 import uuid
@@ -34,4 +33,9 @@ def index():
                 result = f"خطا: {str(e)}"
 
             os.remove(filepath)
-    return render_template("index.html", result=result)
+
+    # ارسال نتیجه به صورت JSON
+    return jsonify({"result": result})
+
+if __name__ == "__main__":
+    app.run(debug=True)
