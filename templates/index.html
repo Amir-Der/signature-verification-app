@@ -10,10 +10,7 @@
   <div class="background"></div>
 
   <div class="container">
-    <div class="top-bar">
-      <h1>تشخیص امضای جعلی</h1>
-      <button id="toggle-dark" class="toggle-dark">🌙</button>
-    </div>
+    <h1>تشخیص امضای جعلی</h1>
 
     <form method="POST" enctype="multipart/form-data" id="upload-form">
       <input type="file" name="file" id="file-input" required accept="image/*">
@@ -35,8 +32,6 @@
     const previewDiv = document.getElementById('preview');
     const fileInput = document.getElementById('file-input');
     const submitBtn = document.getElementById('submit-btn');
-    const toggleDark = document.getElementById('toggle-dark');
-    let isDark = false;
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -69,12 +64,6 @@
       } else {
         previewDiv.innerHTML = '';
       }
-    });
-
-    toggleDark.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      isDark = !isDark;
-      toggleDark.textContent = isDark ? '☀️' : '🌙';
     });
   </script>
 
