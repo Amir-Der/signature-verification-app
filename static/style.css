@@ -1,13 +1,12 @@
-/* فایل style.css برای سایت اصلی */
-
+/* تنظیم فونت ایران‌سنس */
 @font-face {
   font-family: 'IRANSansWeb';
   src: url('/static/fonts/IRANSansWeb.woff2') format('woff2'),
        url('/static/fonts/IRANSansWeb.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
+  font-display: fallback;
 }
 
+/* استایل بدنه سایت */
 body {
   margin: 0;
   font-family: 'IRANSansWeb', sans-serif;
@@ -19,35 +18,37 @@ body {
   justify-content: center;
   align-items: center;
   padding: 30px;
-  color: #222;
 }
 
+/* انیمیشن برای گرادیانت پس‌زمینه */
 @keyframes dynamicBackground {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
+/* استایل برای باکس وسط که فرم‌ها داخلش هستند */
 .container {
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   padding: 50px 40px;
   border-radius: 20px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   width: 100%;
   max-width: 500px;
   text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  font-family: 'IRANSansWeb', sans-serif;
 }
 
+/* استایل عنوان صفحه */
 h1 {
   margin-bottom: 25px;
-  color: #222;
+  color: #2c3e50;
   font-size: 2rem;
 }
 
+/* استایل برای input و button */
 input[type="file"], button {
   margin-top: 20px;
   width: 100%;
@@ -56,40 +57,38 @@ input[type="file"], button {
   border-radius: 12px;
   font-size: 1rem;
   margin-bottom: 15px;
-  font-family: 'IRANSansWeb', sans-serif;
 }
 
+/* استایل برای input فایل */
 input[type="file"] {
-  background: rgba(255, 255, 255, 0.5);
-  box-shadow: inset 2px 2px 6px rgba(0,0,0,0.1), inset -2px -2px 6px rgba(255,255,255,0.7);
-  color: #222;
+  background: #ffffff;
+  box-shadow: inset 2px 2px 6px #ccc, inset -2px -2px 6px #fff;
 }
 
+/* استایل دکمه‌ها */
 button {
-  background: rgba(63, 81, 181, 0.9);
+  background-color: #3f51b5;
   color: #ffffff;
   cursor: pointer;
   transition: 0.3s;
-  font-weight: bold;
 }
 
 button:hover {
-  background: rgba(92, 107, 192, 0.95);
+  background-color: #5c6bc0;
 }
 
+/* استایل نتیجه */
 .result {
   margin-top: 20px;
   font-weight: bold;
   font-size: 1.2rem;
-  color: #222;
-  font-family: 'IRANSansWeb', sans-serif;
+  color: #2ecc71;
 }
 
-/* Responsive styles */
+/* استایل برای موبایل و تبلت */
 @media (max-width: 768px) {
   .container {
-    padding: 30px 20px;
-    max-width: 90%;
+    padding: 40px 30px;
   }
   h1 {
     font-size: 1.8rem;
@@ -98,26 +97,17 @@ button:hover {
     padding: 10px;
     font-size: 0.9rem;
   }
-  .result {
-    font-size: 1rem;
-  }
 }
 
 @media (max-width: 480px) {
-  body {
-    padding: 20px;
-  }
   .container {
-    padding: 20px 15px;
+    padding: 30px 20px;
   }
   h1 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
   input[type="file"], button {
     padding: 8px;
-    font-size: 0.85rem;
-  }
-  .result {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 }
