@@ -50,22 +50,9 @@ body {
   gap: 20px;
 }
 
-.top-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 h1 {
   font-size: 1.8rem;
   color: #2c3e50;
-}
-
-.toggle-dark {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
 }
 
 form {
@@ -102,8 +89,8 @@ button:hover {
 }
 
 .preview img {
-  width: 100%;
-  max-height: 200px;
+  width: 80px; /* اندازه‌ی کوچک برای پیش‌نمایش */
+  height: auto;
   object-fit: contain;
   border-radius: 10px;
   margin-top: 10px;
@@ -126,33 +113,6 @@ button:hover {
   font-size: 0.9rem;
   color: #555;
   margin-top: 10px;
-}
-
-/* Dark Mode */
-body.dark-mode {
-  color: #eee;
-}
-
-body.dark-mode .container {
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-body.dark-mode h1 {
-  color: #ddd;
-}
-
-body.dark-mode input[type="file"] {
-  background: rgba(50,50,50,0.5);
-  color: #eee;
-}
-
-body.dark-mode button {
-  background: rgba(100, 149, 237, 0.8);
-}
-
-body.dark-mode button:hover {
-  background: rgba(70, 130, 180, 0.8);
 }
 
 /* Responsive */
